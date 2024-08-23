@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A3Q2</title>
+</head>
+<body>
+    <h1>Exercise 2</h1>
+
+    <p id="numOfVisits"></p>
+
+    <script>
+        // Fetch the number of visits from the server and display the message in a <p> element
+        window.addEventListener('load', () => {
+            fetch('/')
+                .then(response => response.text())  // Expecting a plain text response
+                .then(data => {
+                    // Display the response message in the <p> element
+                    const messageParagraph = document.getElementById('visitMessage');
+                    messageParagraph.innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error fetching visit count:', error);
+                });
+        });
+
+    </script>
+
+</body>
+</html>
